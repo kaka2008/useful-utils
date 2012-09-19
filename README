@@ -1,1 +1,5 @@
-list some useful java utils.like DateUtils,StringUtils,NumberUtils and so on
+List some useful java utils.
+
+It contains DateUtil,EncodeUtil,IdUtils,MimeUtil,ReflectionUtils,StringUtils.
+
+And it will added with time.

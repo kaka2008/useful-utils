@@ -1,5 +1,4 @@
-﻿
-import java.util.ArrayList;
+﻿import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,10 +11,15 @@ import java.util.StringTokenizer;
  * 
  */
 public class StringUtils {
-
+	/*
+	 * 整数的正则表达式
+	 */
 	private static final String INTEGER_NUMBER = "^[-+]?\\d+$";
+	/*
+	 * 浮点数的正则表达式
+	 */
 	private static final String FLOAT_NUMBER = "^[-+]?[0-9]*\\.?[0-9]+(?:[eE][-+]?[0-9]+)?$";
-	
+
 	/**
 	 * 将oldStr中的#{}包含的内容换成bean的属性或paraMap的内容，bean的属性优先
 	 * 
@@ -28,13 +32,10 @@ public class StringUtils {
 			Map<String, Object> paraMap) {
 		// #{}包含的内容
 		String field = "";
-		// #{}前面的内容
-		String fieldStart = "";
-		String fieldEnd = "";
 		// 若有多个
-		List fields = new ArrayList();
+		List<String> fields = new ArrayList<String>();
 		// 用于存储field与change后值的Map
-		Map changeValues = new HashMap();
+		Map<String, String> changeValues = new HashMap<String, String>();
 
 		String[] ss = oldStr.split("#");
 
@@ -86,10 +87,9 @@ public class StringUtils {
 		return oldStr;
 	}
 
-	public static List split(String str, String delim) {
-		List splitList = new ArrayList();
+	public static List<String> split(String str, String delim) {
+		List<String> splitList = new ArrayList<String>();
 		StringTokenizer st = null;
-
 		if (str == null)
 			return splitList;
 
@@ -104,22 +104,24 @@ public class StringUtils {
 		}
 		return splitList;
 	}
-	
+
 	/**
 	 * 传入一个经过format的number类型的数值，去掉其中的逗号
+	 * 
 	 * @param value
 	 * @return
 	 */
-	public static String removeComma(String value){
-		if(value == null)
+	public static String removeComma(String value) {
+		if (value == null)
 			return value;
 		value = value.replace(",", "");
 		value = value.replace("，", "");
 		return value;
 	}
-	
+
 	/**
 	 * 验证传进入的值是否是整数
+	 * 
 	 * @param number
 	 * @return
 	 */
@@ -130,13 +132,14 @@ public class StringUtils {
 		flag = number.matches(INTEGER_NUMBER);
 		return flag;
 	}
-	
+
 	/**
 	 * 验证传入的值是否是浮点数
+	 * 
 	 * @param number
 	 * @return
 	 */
-	public static boolean isFloat(String number){
+	public static boolean isFloat(String number) {
 		if (number == null)
 			return false;
 		boolean flag = true;
